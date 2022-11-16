@@ -23,7 +23,7 @@ const callback = (e) => {
     }
     var saveData = $.ajax({
         type: 'POST',
-        url: 'http://localhost:8080/api/submit-contact-us',
+        url: 'https://ecom-electronic.onrender.com/api/submit-contact-us',
         cors: 'no-cors',
         data: serverData,
         success: function(response) {

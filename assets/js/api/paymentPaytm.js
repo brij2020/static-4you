@@ -17,11 +17,11 @@ const btn = document.getElementById('pay-btn');
         "shippingPrice":"0.00",
         "taxPrice":"64.53",
         "totalPrice":"487.53",
-        "fallBackUrl": "http://127.0.0.1:5500/index.html",
+        "fallBackUrl": "https://static-4you.vercel.app",
         "merchantUrl": "https://securegw-stage.paytm.in" }
       var saveData = $.ajax({
               type: 'POST',
-              url: 'http://localhost:8080/payment/book-slot',
+              url: 'https://ecom-electronic.onrender.com/payment/book-slot',
               cors: 'no-cors',
               data: serverData,
               success: function({data:paymentResponse}) { 
