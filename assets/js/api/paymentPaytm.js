@@ -24,6 +24,9 @@ const btn = document.getElementById('pay-btn');
               url: 'https://ecom-electronic.onrender.com/payment/book-slot',
               cors: 'no-cors',
               data: serverData,
+               xhrFields: {
+                withCredentials: true
+                },
               success: function({data:paymentResponse}) { 
                 
                   console.log(paymentResponse,'paymentResponse')
