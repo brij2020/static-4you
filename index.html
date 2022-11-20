@@ -1280,30 +1280,39 @@ $(".owl-carousel").owlCarousel({
  
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script type="text/javascript">window.onload = function() { 
-    Calendly.initBadgeWidget({ url: 'https://calendly.com/sunny-07', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); 
+    Calendly.initBadgeWidget({ url: 'https://calendly.com/sunny-07', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true });
+    const div = document.getElementsByClassName('calendly-badge-content')[0];
+    if(typeof div  !== 'undefined') {
+        div.style.opacity = -1;
+    }
+ 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(';').shift();
     }
+    const queryParams = new URLSearchParams(document.location.search);
+
     let isValid = getCookie('isValidForCalendly');
     console.log(isValid,'isValidForCalendly');
    
-    if(isValid === 'true') {
+    if(queryParams.has('isValidForCalendly') && queryParams.get('isValidForCalendly') == 'true') {
         let calendlyDiv = document.getElementsByClassName('calendly-badge-content');
+        
         if(typeof calendlyDiv[0] !== 'undefined' ) {
             calendlyDiv[0].click();
 
             setTimeout(() => delete_cookie('isValidForCalendly') ,3000);
             function delete_cookie(name) {
-                document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-                calendlyDiv[0].style.display = 'none'
+                window.history.pushState({}, document.title, window.location.pathname);
+              
             }
             
         }
     }
 
 }</script>
+
 
 </body>
 
