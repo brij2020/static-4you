@@ -94,8 +94,14 @@
                           <li class="nav-item">
                             <a class="nav-link" href="about.html">About Us</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
+                          
+                            
+                           <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Products</a>
+                            <ul class="dropdown-menu" id="pro-nav">
+                              
+                            </ul>
+                          </li>
                           </li>
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
@@ -1277,7 +1283,7 @@ $(".owl-carousel").owlCarousel({
   </script>
   <script type="text/javascript" src="./assets/js/api/paymentPaytm.js"></script>
   <script type="text/javascript" src="./assets/js/api/book-service.js"></script>
-  
+  <script type="text/javascript" src='./assets/js/api/products-nav.js' ></script>
  
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script type="text/javascript">window.onload = function() { 
@@ -1295,8 +1301,7 @@ $(".owl-carousel").owlCarousel({
     const queryParams = new URLSearchParams(document.location.search);
 
     let isValid = getCookie('isValidForCalendly');
-    console.log(isValid,'isValidForCalendly');
-   
+    
     if(queryParams.has('isValidForCalendly') && queryParams.get('isValidForCalendly') == 'true') {
         let calendlyDiv = document.getElementsByClassName('calendly-badge-content');
         
@@ -1312,7 +1317,8 @@ $(".owl-carousel").owlCarousel({
         }
     }
 
-}</script>
+}
+</script>
 
 
 </body>
